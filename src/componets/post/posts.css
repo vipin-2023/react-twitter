@@ -17,12 +17,16 @@
     border-radius: 20px;
     width: 100%;
     height: auto;
+    cursor: pointer;
    }
   
   .post-footer {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+  }
+  .post-footer * {
+  cursor: pointer;
   }
   
   .post-headerDescription {
@@ -48,4 +52,5 @@
   
   .post-avatar {
     padding: 20px;
+    cursor: pointer;
   }

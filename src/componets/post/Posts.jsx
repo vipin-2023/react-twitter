@@ -12,7 +12,7 @@ const Post = ({ displayName, username, verified, text, image, avatar }) => {
     return (
       <div className="post" >
         <div className="post-avatar">
-        <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx5iJeyfGab7MwtNiLF86gjQgq5Ta36gIHrw&usqp=CAU" />
+        <Avatar src={avatar} />
         </div>
         <div className="post-body">
           <div className="post-header">
@@ -29,9 +29,9 @@ const Post = ({ displayName, username, verified, text, image, avatar }) => {
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti minima eligendi eveniet quidem vitae omnis magni tempore consequuntur ?my trip vibe</p>
             </div>
           </div>
-          <img src="https://images.ctfassets.net/hrltx12pl8hq/3KWcqxPlvmgkpMS5VdjLAk/3cbdd812faf4b8c343b259656d31a0ee/rendered_15.jpg?fit=fill&w=600&h=338" alt="" />
+          <img src={image} alt="" />
           <div className="post-footer">
-            <ChatBubbleOutlineIcon fontSize="small" />
+            <ChatBubbleOutlineIcon color="red" fontSize="small" />
             <RepeatIcon fontSize="small" />
             <FavoriteBorderOutlinedIcon fontSize="small" />
             <PublishRoundedIcon fontSize="small" />
