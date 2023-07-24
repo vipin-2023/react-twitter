@@ -18,15 +18,15 @@ const Post = ({ displayName, username, verified, text, image, avatar }) => {
           <div className="post-header">
             <div className="post-headerText">
               <h3>
-                vipin
+               {displayName}
                 <span className="post-headerSpecial">
-                  {true && <CheckCircleRoundedIcon className="post-badge" />} @
-                  vipin_ii
+                  {verified && <CheckCircleRoundedIcon className="post-badge" />} @
+                  {username}
                 </span>
               </h3>
             </div>
             <div className="post-headerDescription">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti minima eligendi eveniet quidem vitae omnis magni tempore consequuntur ?my trip vibe</p>
+              <p>{text}</p>
             </div>
           </div>
           <img src={image} alt="" />

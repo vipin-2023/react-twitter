@@ -1,7 +1,8 @@
-# Twitter Mimic
+# React + Vite
 
-## ReactJs | Firebase | MUI
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Demo
+Currently, two official plugins are available:
 
-![Screencast_from_23-07-23_07_49_48_PM_IST](https://github.com/vipin-2023/react-twitter/assets/109500059/6d3ccb6a-4f09-4b94-920d-a3121b41f58b)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

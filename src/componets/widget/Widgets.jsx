@@ -9,14 +9,14 @@ const Widgets = () => {
   return (
     <div className="widgets">
       <div className="widgets-input">
-        <SearchOutlinedIcon className="widgets-searchIcon" />
+        <SearchOutlinedIcon  className="widgets-searchIcon" />
         <input placeholder="Search Twitter" type="text" />
       </div>
 
       <div className="widgets-widgetContainer">
         <h2>What's happening</h2>
 
-        <TwitterTweetEmbed tweetId={"1682997638625361920"} />
+        <TwitterTweetEmbed  tweetId={"1682997638625361920"} />
 
         <TwitterTimelineEmbed
           sourceType="profile"

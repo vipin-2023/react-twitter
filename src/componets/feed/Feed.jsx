@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./feed.css";
 import TweetBox from "../tweetBox/TweetBox";
 import Post from "../post/Posts";
-import { postImg, avtarImg } from "../../data/img";
+
+
+import db from "../../firebase/firebase";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+
+const textData =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aspernatur, at reiciendis facilis, omnis aut unde, nulla accusantium eum est quod hic placeat sed itaque? Quod beatae reiciendis optio iste? ";
 
 const Feed = () => {
+  const [posts, setPosts] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      console.log(posts);
+      // const q = query(collection(db, 'posts'), orderBy('timeStamp'));
+
+      onSnapshot(collection(db, "posts"), (querySnapshot) => {
+        const newData = querySnapshot.docs.map((doc) => doc.data());
+        setPosts(newData);
+        console.log(posts);
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log(posts);
+
   return (
     <div className="feed">
       {/* Header */}
@@ -26,15 +54,68 @@ const Feed = () => {
         </div>
       </div>
       <TweetBox />
-      <Post avatar={avtarImg.avt1} image={postImg.post6} />
-      <Post avatar={avtarImg.avt2} image={postImg.post4} />
-      <Post avatar={avtarImg.avt3} image={postImg.post3} />
-      <Post avatar={avtarImg.avt5} image={postImg.post1} />
-      <Post avatar={avtarImg.avt4} image={postImg.post2} />
-      <Post avatar={avtarImg.avt3} image={postImg.post5} />
+    
+       
+      {console.log(posts)}
+      {posts?.toReversed().map((post) => (
+        <Post
+          key={post?.id}
+          displayName={post?.displayName}
+          username={post?.username}
+          verified={post?.verified}
+          text={post?.text}
+          avatar={post?.avatar}
+          image={post?.image}
+        />
+      ))}
 
-     
-     
+      {/* <Post
+        avatar={avtarImg.avt1}
+        displayName={"vipin"}
+        username={"vvvvipin"}
+        verified={true}
+        image={postImg.post6}
+      />
+      <Post
+        avatar={avtarImg.avt2}
+        displayName={"vipin"}
+        text={"this is a post discription "}
+        username={"vvvvipin"}
+        verified={false}
+        image={postImg.post4}
+      />
+      <Post
+        avatar={avtarImg.avt3}
+        displayName={"vipin"}
+        text={textData}
+        username={"vvvvipin"}
+        verified={true}
+        image={postImg.post3}
+      />
+      <Post
+        avatar={avtarImg.avt5}
+        displayName={"vipin"}
+        text={"this is a post discription "}
+        username={"vvvvipin"}
+        verified={false}
+        image={postImg.post1}
+      />
+      <Post
+        avatar={avtarImg.avt4}
+        displayName={"vipin"}
+        text={"this is a post discription "}
+        username={"vvvvipin"}
+        verified={false}
+        image={postImg.post2}
+      />
+      <Post
+        avatar={avtarImg.avt3}
+        displayName={"vipin"}
+        text={"this is a post discription "}
+        username={"vvvvipin"}
+        verified={false}
+        image={postImg.post5}
+      /> */}
     </div>
   );
 };
